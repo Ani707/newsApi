@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 const FetchData = ({cat}) => {
@@ -25,7 +24,7 @@ const FetchData = ({cat}) => {
         : "#edf1f2"}}>
                 <h5 className='my-2'>{items.title}</h5>
                 <div className="d-flex justify-content-center align-items-center">
-                <img src={items.urlToImage} className='img-fluid' alt="Image not found" 
+                <img src={items.urlToImage} className='img-fluid' alt="not found" 
                 style={{width:"100%",height:"300px",objectFit:"cover"}}/>
                 </div>
                 
