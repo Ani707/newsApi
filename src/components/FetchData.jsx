@@ -5,11 +5,17 @@ import { useEffect } from 'react';
 const FetchData = ({cat}) => {
     const [Data, setData] = useState("")
     const fetchData= async()=>{
-        await axios
-        .get(
-            cat?`https://newsapi.org/v2/top-headlines?country=in&category=${cat}&apiKey=7feca11ab23c450588f0227644693d10`
-            :"https://newsapi.org/v2/top-headlines?country=in&apiKey=7feca11ab23c450588f0227644693d10"
-        ).then((res)=>setData(res.data.articles));
+        // await axios
+        // .get(
+        //     cat?`https://newsapi.org/v2/top-headlines?country=in&category=${cat}&apiKey=7feca11ab23c450588f0227644693d10`
+        //     :"https://newsapi.org/v2/top-headlines?country=in&apiKey=7feca11ab23c450588f0227644693d10"
+        // ).then((res)=>setData(res.data.articles));
+
+        var result = await fetch(cat?`https://newsapi.org/v2/top-headlines?country=in&category=${cat}&apiKey=7feca11ab23c450588f0227644693d10`:"https://newsapi.org/v2/top-headlines?country=in&apiKey=7feca11ab23c450588f0227644693d10")
+
+        const data = await result.json()
+        setData(data.articles)
+        console.log(data)
     };
     useEffect(() => {
     fetchData();
